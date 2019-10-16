@@ -7,13 +7,15 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Travis build
+status](https://travis-ci.org/bcjaeger/tibbleOne.svg?branch=master)](https://travis-ci.org/bcjaeger/tibbleOne)
 <!-- badges: end -->
 
-The goal of `tibbleOne` is to make it easy for analysts to include a
-Table 1 object in both LaTeX and html markdown documents. I made this
-package because I was unable to get the html tables I wanted from the
-existing table one R packages. Notably, this package has far fewer
-features than the outstanding TableOne package, but it can get a
+The goal of the `tibbleOne` package is to make it easy for analysts to
+include a Table 1 object in both LaTeX and html markdown documents. I
+made this package because I was unable to get the html tables I wanted
+from the existing table one R packages. Notably, this package has far
+fewer features than the outstanding TableOne package, but it can get a
 readable Table 1 object into a markdown document with less effort.
 
 ## Installation
