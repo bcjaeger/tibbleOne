@@ -39,8 +39,8 @@ library(tibbleOne)
 library(tidyverse)
 ```
 
-The first step should be setting labels for variables that will be in
-the table. This can be done using `set_variable_labels` and then
+The first step should be setting labels for the variables that will be
+in the table. This can be done using `set_variable_labels` and then
 building a `meta` data set. You may also just pipe the labelled dataset
 into `tibble_one()`, but it is generally more useful to keep the `meta`
 data object in case you need to use the labels for other tables in your
