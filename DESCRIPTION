@@ -1,13 +1,44 @@
 Package: tibbleOne
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+Type: Package
+Title: Table One for 'Latex', 'Word', and 'Html' 'R Markdown' Documents
+Version: 0.1.0
+Authors@R: c(
+    person("Byron", "Jaeger", email = "bcjaeger@uab.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7399-2299")),
+    person("Boyi", "Guo", email = "boyiguo1@uab.edu", role = "ctb")
+    )
+Maintainer: Byron Jaeger <bcjaeger@uab.edu>
+Description: In many academic papers, table 1 shows participant
+    characteristics, often stratified by a categorical variable
+    such as treatment group. There are many excellent packages
+    available to compute the numbers in table 1. This package
+    focuses on getting those numbers into a nice format that 
+    works with 'R Markdown'.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 3.5.0)
+Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
+RoxygenNote: 6.1.1
+Imports:
+    tibble (>= 2.1.3),
+    knitr (>= 1.23), 
+    officer,
+    flextable,
+    kableExtra,
+    forcats,
+    labelled,
+    tidyr (>= 1.0.0),
+    tidyselect,
+    stringr,
+    rlang,
+    vctrs,
+    purrr,
+    glue,
+    stats,
+    magrittr,
+    dplyr
+Suggests: 
+    rmarkdown,
+    survival,
+    tidyverse,
+    testthat (>= 2.1.0)

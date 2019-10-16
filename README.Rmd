@@ -1,0 +1,87 @@
+---
+output: github_document
+always_allow_html: yes
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tibbleOne
+
+<!-- badges: start -->
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Travis build status](https://travis-ci.org/bcjaeger/tibbleOne.svg?branch=master)](https://travis-ci.org/bcjaeger/tibbleOne)
+<!-- badges: end -->
+
+
+The goal of `tibbleOne` is to make it easy for analysts to include a Table 1 object in both LaTeX and html markdown documents. I made this package because I was unable to get the html tables I wanted from the existing table one R packages. Notably, this package has far fewer features than the outstanding TableOne package, but it can get a readable Table 1 object into a markdown document with less effort.
+
+## Installation
+
+You can install the latest version of tibbleOne from github with:
+
+``` r
+devtools::install_github('bcjaeger/tibbleOne')
+```
+
+## Example
+
+For a more detailed example, see the 'start here' vignette. This example shows basic elements of `tibbleOne`.
+
+```{r example, message = FALSE}
+
+library(knitr)
+library(kableExtra)
+library(tibbleOne)
+library(tidyverse)
+
+```
+
+The first step should be setting labels for variables that will be in the table. This can be done using `set_variable_labels` and then building a `meta` data set. You may also just pipe the labelled dataset into `tibble_one()`, but it is generally more useful to keep the `meta` data object in case you need to use the labels for other tables in your analysis. 
+
+```{r}
+
+meta <- pbc_tbl1 %>% 
+  set_variable_labels(
+    status = "Status at last contact",
+    trt = "Treatment group",
+    age = 'Age',
+    sex = 'Sex at birth',
+    ascites = 'Ascites',
+    bili = 'Bilirubin levels',
+    edema = 'Edema',
+    albumin = 'Serum Albumin'
+  ) %>%
+  build_meta()
+
+tbl_one <- tibble_one(
+  data = pbc_tbl1,
+  meta_data = meta,
+  formula = ~ . | trt,
+  include_pval = TRUE
+)
+
+```
+
+Last step, we pass `tbl_one` into the `to_kable()` function, which provides a couple of nice formatting procedures to make the data look like the type of Table 1 that you may see in a published article.
+
+```{r}
+
+cap <- 'Characteristics of patients with primary biliarry cirrhosis.'
+
+tbl_one %>% 
+  to_kable(caption = cap) %>%
+  kable_styling(
+    position = 'center',
+    bootstrap_options = c('striped')
+  )
+
+```
