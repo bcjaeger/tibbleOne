@@ -62,7 +62,7 @@ indicated string. Since GFR is an acronym, we would also want to use
 }
 \note{
 The \code{set_variable_labels} function in \code{tibbleOne} is a wrapper
-of the \link[labelled:set_variable_labels]{labelled} function,
+of the \link[labelled:var_label]{labelled} function,
 developed by Joseph Larmarange.
 }
 \examples{

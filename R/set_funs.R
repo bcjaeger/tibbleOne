@@ -43,7 +43,7 @@
 #'   attributes based on user input.
 #'
 #' @note The `set_variable_labels` function in `tibbleOne` is a wrapper
-#'   of the [labelled][labelled::set_variable_labels()] function,
+#'   of the [labelled][labelled::var_label] function,
 #'   developed by Joseph Larmarange.
 #'
 #' @examples
