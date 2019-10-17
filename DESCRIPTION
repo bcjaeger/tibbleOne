@@ -41,5 +41,6 @@ Suggests:
     rmarkdown,
     survival,
     tidyverse,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    covr
 VignetteBuilder: knitr

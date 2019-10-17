@@ -9,6 +9,8 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![Travis build
 status](https://travis-ci.org/bcjaeger/tibbleOne.svg?branch=master)](https://travis-ci.org/bcjaeger/tibbleOne)
+[![Codecov test
+coverage](https://codecov.io/gh/bcjaeger/tibbleOne/branch/master/graph/badge.svg)](https://codecov.io/gh/bcjaeger/tibbleOne?branch=master)
 <!-- badges: end -->
 
 The goal of the `tibbleOne` package is to make it easy for analysts to
