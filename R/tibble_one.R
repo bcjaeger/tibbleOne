@@ -1,6 +1,21 @@
 
 
 #' Tidy characteristics data
+#'
+#' @description
+#'
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}
+#'
+#' Table one is a tabular description of
+#'  characteristics, e.g., demographics of patients in a clinical trial,
+#'  presented overall and also stratified by a categorical variable, e.g.
+#'  treatment group.
+#'
+#' @return a [tibble][tibble::tibble-package] containing summary values
+#'   that describe characteristics of observations in `data` , which can
+#'   subsequently be sent to different modes of output
+#'   (see [to_word] and [to_kable]).
+#'
 #' @param data a data frame
 #'
 #' @param meta_data a meta data frame. If unspecified, a meta data frame
@@ -43,8 +58,8 @@
 #' @param include_freq T/F, should frequency values be included for
 #'   categorical variables?
 #'
-#' @return a [tibble][tibble::tibble-package] containing summary values
-#'   that describe characteristics of observations in `data`.
+#' @param add_perc_to_cats T/F, should categorical variable labels
+#'   be appended with a percent sign?
 #'
 #' @export
 #'
@@ -64,7 +79,7 @@
 
 # data = pbc_tbl1
 # formula = ~ . - age | sex
-# meta_data = NULL
+# meta_data = meta
 # row_vars = NULL
 # strat = NULL
 # by = NULL
@@ -84,9 +99,10 @@ tibble_one <- function(
   by = NULL,
   specs_table_vals = NULL,
   specs_table_tests = NULL,
-  expand_binary_catgs = FALSE,
   include_pval=FALSE,
-  include_freq=FALSE
+  expand_binary_catgs = FALSE,
+  include_freq = FALSE,
+  add_perc_to_cats = TRUE
 ){
 
   # Identify row, stratification, and by variables
@@ -187,12 +203,21 @@ tibble_one <- function(
 
   }
 
-  # meta data set is compiled if needed
-  meta <- meta_data %||% build_meta(data, expand_binary_catgs)
+  meta <- meta_data
 
-  meta$data %<>%
-    filter(variable %in% c(strat, by, row_vars)) %>%
-    check_meta()
+  if(is.null(meta)){
+    # meta data set is compiled if needed
+    meta <- data %>%
+      mutate_if(is.character, as.factor) %>%
+      select_at(vars(strat, by, row_vars)) %>%
+      build_meta(
+        expand_binary_catgs = expand_binary_catgs,
+        add_perc_to_cats = add_perc_to_cats
+      ) %>%
+      check_meta()
+  }
+
+
 
   # initialize default specification for table values / tests
   default_spec <- rep(
@@ -402,8 +427,19 @@ tibble_one <- function(
     }
   }
 
+  table_data %<>% bind_rows(descr_row, .)
+
+  if( meta$add_perc_to_cats && include_freq ){
+
+    table_data$unit %<>% gsub(
+      pattern = '%',
+      replacement = 'n (%)',
+      x = .
+    )
+
+  }
+
   table_data %<>%
-    bind_rows(descr_row, .) %>%
     mutate(
       variable = factor(
         x = variable,

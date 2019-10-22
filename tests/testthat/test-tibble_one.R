@@ -34,6 +34,35 @@ test_that("simple continuous input works", {
 
   tb1 <- tibble_one(
     data = df,
+    formula = ~ a+b,
+    specs_table_vals = 'median',
+    include_freq = TRUE
+  )
+
+  expect_equal(
+    tb1,
+    structure(
+      list(
+        group = structure(c(1L, 1L, 1L), .Label = "None", class = "factor"),
+        variable = structure(1:3, .Label = c("descr", "a", "b"), class = "factor"),
+        labels = c("No. of observations", "A", "B, n (%)"),
+        Overall = c("10",
+          "5.50 [3.25-7.75]", "5 (50.0)")
+      ),
+      class = c("tbl_df", "tbl",
+        "data.frame", "tibble_one"),
+      row.names = c(NA, -3L),
+      type = "single_decker",
+      pvals = FALSE,
+      abbrs = "",
+      notes = structure(list(), .Names = character(0)),
+      descr = "Table values are median [interquartile range] and count (percent) for continuous and categorical variables, respectively.",
+      allcats = FALSE
+    )
+  )
+
+  tb1 <- tibble_one(
+    data = df,
     formula = ~ a | b,
     include_pval = TRUE,
     specs_table_vals = 'median',

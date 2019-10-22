@@ -40,9 +40,9 @@ check_tibble_one_input <- function(object){
 check_meta <- function(meta){
 
   # check variable types in meta data
-  if( !all(meta$type %in% c('factor', 'numeric', 'integer')) ) {
+  if( !all(meta$data$type %in% c('factor', 'numeric', 'integer')) ) {
 
-    out_variables <- meta %>%
+    out_variables <- meta$data %>%
       filter(!type %in% c('factor', 'numeric', 'integer')) %>%
       mutate(variable = paste0(variable, ' (',type,')')) %>%
       pluck('variable') %>%

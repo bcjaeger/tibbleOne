@@ -6,8 +6,9 @@
 \usage{
 tibble_one(data, formula = NULL, meta_data = NULL, row_vars = NULL,
   strat = NULL, by = NULL, specs_table_vals = NULL,
-  specs_table_tests = NULL, expand_binary_catgs = FALSE,
-  include_pval = FALSE, include_freq = FALSE)
+  specs_table_tests = NULL, include_pval = FALSE,
+  expand_binary_catgs = FALSE, include_freq = FALSE,
+  add_perc_to_cats = TRUE)
 }
 \arguments{
 \item{data}{a data frame}
@@ -40,24 +41,34 @@ Valid specs are 'mean' and 'median' (see examples).}
 Names should be variables, while values should be specs.
 Valid specs are 'params' or 'noparm' (see examples).}
 
-\item{expand_binary_catgs}{T/F, should all categories be included for
-binary categorical variables? (This only applies to binary variables.)}
-
 \item{include_pval}{T/F, should the table include a column for p-values?
 If p-values are included, factor variables are handled using
 chi-square tests, continuous variables are handled using t-tests
 or ANOVA, depending on the number of categories in the table
 stratification.}
 
+\item{expand_binary_catgs}{T/F, should all categories be included for
+binary categorical variables? (This only applies to binary variables.)}
+
 \item{include_freq}{T/F, should frequency values be included for
 categorical variables?}
+
+\item{add_perc_to_cats}{T/F, should categorical variable labels
+be appended with a percent sign?}
 }
 \value{
 a \link[tibble:tibble-package]{tibble} containing summary values
-that describe characteristics of observations in \code{data}.
+that describe characteristics of observations in \code{data} , which can
+subsequently be sent to different modes of output
+(see \link{to_word} and \link{to_kable}).
 }
 \description{
-Tidy characteristics data
+\Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}
+
+Table one is a tabular description of
+characteristics, e.g., demographics of patients in a clinical trial,
+presented overall and also stratified by a categorical variable, e.g.
+treatment group.
 }
 \examples{
 data("pbc_tbl1")

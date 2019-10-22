@@ -61,7 +61,7 @@ meta <- pbc_tbl1 %>%
     edema = 'Edema',
     albumin = 'Serum Albumin'
   ) %>%
-  build_meta()
+  build_meta(add_perc_to_cats = TRUE)
 
 tbl_one <- tibble_one(
   data = pbc_tbl1,

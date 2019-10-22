@@ -140,7 +140,8 @@ build_meta <- function(
     .Data = list(
       data = mta_data,
       group_levels = attr(data, 'group_levels'),
-      var_levels = attr(data, 'var_levels')
+      var_levels = attr(data, 'var_levels'),
+      add_perc_to_cats = add_perc_to_cats
     ),
     class = 'meta'
   )

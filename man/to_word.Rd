@@ -7,7 +7,7 @@
 to_word(object, font_size = 11, use_groups = TRUE,
   indent_groups = TRUE, footnote_notation = "symbol",
   include_1st_header = TRUE, include_2nd_header = TRUE,
-  include_3rd_header = TRUE, ...)
+  include_3rd_header = TRUE)
 }
 \arguments{
 \item{object}{a tibble_one object}
@@ -16,18 +16,29 @@ to_word(object, font_size = 11, use_groups = TRUE,
 
 \item{use_groups}{T/F, should rows be grouped?}
 
-\item{indent_groups}{T/F, should entries within groups be indented? (this has no effect if \code{use_groups} is \code{FALSE})}
+\item{indent_groups}{T/F, should entries within groups be indented?
+(this has no effect if \code{use_groups} is \code{FALSE})}
 
-\item{footnote_notation}{character value indicating footnote symbols to use in tables. Eligible values are \code{symbol}, \code{number}, and \code{alphabet}.}
+\item{footnote_notation}{character value indicating footnote symbols
+to use in tables. Eligible values are \code{symbol}, \code{number}, and \code{alphabet}.}
 
 \item{include_1st_header}{T/F, should bottom header be included?}
 
 \item{include_2nd_header}{T/F, should middle header be included?}
 
 \item{include_3rd_header}{T/F, should top header be included?}
-
-\item{...}{arguments passed to flextable function}
+}
+\value{
+a \link[flextable:flextable-package]{flextable}.
 }
 \description{
-pass tibble_one to flextable
+\Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}
+
+Tabular summaries of characteristics (i.e., table one) are generally
+presented in a table with columns that describe the overall sample
+and subsets of the sample designated by a grouping variable.
+In addition, it is expected that variable labels and units will be
+indicated, and footnotes will be placed at the bottom of the table
+with full descriptions of variables and abbreviations that appear
+in the table. This function automates these tasks.
 }

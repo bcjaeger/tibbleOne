@@ -1,6 +1,23 @@
 
 #' Pass tibble_one to kable
 #'
+#' @description
+#'
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}
+#'
+#' Tabular summaries of characteristics (i.e., table one) are generally
+#'   presented in a table with columns that describe the overall sample
+#'   and subsets of the sample designated by a grouping variable.
+#'   In addition, it is expected that variable labels and units will be
+#'   indicated, and footnotes will be placed at the bottom of the table
+#'   with full descriptions of variables and abbreviations that appear
+#'   in the table. This function automates these tasks.
+#'
+#' @return A character vector of the table source code, i.e., code that can
+#'   be presented in 'R Markdown' documents.
+#'
+#'
+#'
 #' @param object a tibble_one object
 #'
 #' @param use_groups T/F, should rows be grouped?

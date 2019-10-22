@@ -1,16 +1,38 @@
 
-# source("R/hline_header.R")
-
 #' pass tibble_one to flextable
+#'
+#' @description
+#'
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}
+#'
+#' Tabular summaries of characteristics (i.e., table one) are generally
+#'   presented in a table with columns that describe the overall sample
+#'   and subsets of the sample designated by a grouping variable.
+#'   In addition, it is expected that variable labels and units will be
+#'   indicated, and footnotes will be placed at the bottom of the table
+#'   with full descriptions of variables and abbreviations that appear
+#'   in the table. This function automates these tasks.
+#'
+#' @return a [flextable][flextable::flextable-package].
+#'
 #' @param object a tibble_one object
+#'
 #' @param font_size the size of font in the table.
+#'
 #' @param use_groups T/F, should rows be grouped?
-#' @param indent_groups T/F, should entries within groups be indented? (this has no effect if `use_groups` is `FALSE`)
-#' @param footnote_notation character value indicating footnote symbols to use in tables. Eligible values are `symbol`, `number`, and `alphabet`.
+#'
+#' @param indent_groups T/F, should entries within groups be indented?
+#'   (this has no effect if `use_groups` is `FALSE`)
+#'
+#' @param footnote_notation character value indicating footnote symbols
+#'   to use in tables. Eligible values are `symbol`, `number`, and `alphabet`.
+#'
 #' @param include_1st_header T/F, should bottom header be included?
+#'
 #' @param include_2nd_header T/F, should middle header be included?
+#'
 #' @param include_3rd_header T/F, should top header be included?
-#' @param ... arguments passed to flextable function
+#'
 #' @export
 
 # object = tb1
@@ -30,8 +52,7 @@ to_word <- function(
   footnote_notation = 'symbol',
   include_1st_header = TRUE,
   include_2nd_header = TRUE,
-  include_3rd_header = TRUE,
-  ...
+  include_3rd_header = TRUE
 ){
 
   check_tibble_one_input(object)
@@ -93,7 +114,7 @@ to_word <- function(
     length = length(table_notes)
   )
 
-  # for each footnote label...
+  # for each footnote label:
   for(i in seq_along(footnote_labels) ){
 
     # find rows in the table where this variable is used
@@ -233,7 +254,7 @@ to_word <- function(
       # Assume this row doesn't start a new group
       first_val = FALSE
 
-      # Unless the ith row of ft1_data disagrees...
+      # Unless the ith row of ft1_data disagrees:
       if(!is.na(ft1_data[['group']][i])){
         first_val = TRUE
         # if it does, update the current group
