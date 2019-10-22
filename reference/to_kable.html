@@ -36,7 +36,14 @@
 
 
 <meta property="og:title" content="Pass tibble_one to kable — to_kable" />
-<meta property="og:description" content="Pass tibble_one to kable" />
+<meta property="og:description" content="
+Tabular summaries of characteristics (i.e., table one) are generally
+presented in a table with columns that describe the overall sample
+and subsets of the sample designated by a grouping variable.
+In addition, it is expected that variable labels and units will be
+indicated, and footnotes will be placed at the bottom of the table
+with full descriptions of variables and abbreviations that appear
+in the table. This function automates these tasks." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,7 +125,14 @@
     </div>
 
     <div class="ref-description">
-    <p>Pass tibble_one to kable</p>
+    <p><a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a></p>
+<p>Tabular summaries of characteristics (i.e., table one) are generally
+presented in a table with columns that describe the overall sample
+and subsets of the sample designated by a grouping variable.
+In addition, it is expected that variable labels and units will be
+indicated, and footnotes will be placed at the bottom of the table
+with full descriptions of variables and abbreviations that appear
+in the table. This function automates these tasks.</p>
     </div>
 
     <pre class="usage"><span class='fu'>to_kable</span>(<span class='no'>object</span>, <span class='kw'>use_groups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>indent_groups</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -179,12 +193,17 @@ from <code>knitr::opts_current$get('label')</code>.</p></dd>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A character vector of the table source code, i.e., code that can
+be presented in 'R Markdown' documents.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
     </ul>
 
   </div>

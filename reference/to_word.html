@@ -36,7 +36,14 @@
 
 
 <meta property="og:title" content="pass tibble_one to flextable — to_word" />
-<meta property="og:description" content="pass tibble_one to flextable" />
+<meta property="og:description" content="
+Tabular summaries of characteristics (i.e., table one) are generally
+presented in a table with columns that describe the overall sample
+and subsets of the sample designated by a grouping variable.
+In addition, it is expected that variable labels and units will be
+indicated, and footnotes will be placed at the bottom of the table
+with full descriptions of variables and abbreviations that appear
+in the table. This function automates these tasks." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,13 +125,20 @@
     </div>
 
     <div class="ref-description">
-    <p>pass tibble_one to flextable</p>
+    <p><a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a></p>
+<p>Tabular summaries of characteristics (i.e., table one) are generally
+presented in a table with columns that describe the overall sample
+and subsets of the sample designated by a grouping variable.
+In addition, it is expected that variable labels and units will be
+indicated, and footnotes will be placed at the bottom of the table
+with full descriptions of variables and abbreviations that appear
+in the table. This function automates these tasks.</p>
     </div>
 
     <pre class="usage"><span class='fu'>to_word</span>(<span class='no'>object</span>, <span class='kw'>font_size</span> <span class='kw'>=</span> <span class='fl'>11</span>, <span class='kw'>use_groups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>indent_groups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>footnote_notation</span> <span class='kw'>=</span> <span class='st'>"symbol"</span>,
   <span class='kw'>include_1st_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>include_2nd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>include_3rd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>include_3rd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,11 +157,13 @@
     </tr>
     <tr>
       <th>indent_groups</th>
-      <td><p>T/F, should entries within groups be indented? (this has no effect if <code>use_groups</code> is <code>FALSE</code>)</p></td>
+      <td><p>T/F, should entries within groups be indented?
+(this has no effect if <code>use_groups</code> is <code>FALSE</code>)</p></td>
     </tr>
     <tr>
       <th>footnote_notation</th>
-      <td><p>character value indicating footnote symbols to use in tables. Eligible values are <code>symbol</code>, <code>number</code>, and <code>alphabet</code>.</p></td>
+      <td><p>character value indicating footnote symbols
+to use in tables. Eligible values are <code>symbol</code>, <code>number</code>, and <code>alphabet</code>.</p></td>
     </tr>
     <tr>
       <th>include_1st_header</th>
@@ -161,18 +177,18 @@
       <th>include_3rd_header</th>
       <td><p>T/F, should top header be included?</p></td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td><p>arguments passed to flextable function</p></td>
-    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a <a href='https://rdrr.io/pkg/flextable/man/flextable-package.html'>flextable</a>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
     </ul>
 
   </div>

@@ -36,7 +36,11 @@
 
 
 <meta property="og:title" content="Tidy characteristics data — tibble_one" />
-<meta property="og:description" content="Tidy characteristics data" />
+<meta property="og:description" content="
+Table one is a tabular description of
+characteristics, e.g., demographics of patients in a clinical trial,
+presented overall and also stratified by a categorical variable, e.g.
+treatment group." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,13 +122,18 @@
     </div>
 
     <div class="ref-description">
-    <p>Tidy characteristics data</p>
+    <p><a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a></p>
+<p>Table one is a tabular description of
+characteristics, e.g., demographics of patients in a clinical trial,
+presented overall and also stratified by a categorical variable, e.g.
+treatment group.</p>
     </div>
 
     <pre class="usage"><span class='fu'>tibble_one</span>(<span class='no'>data</span>, <span class='kw'>formula</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>meta_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>strat</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>specs_table_vals</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>specs_table_tests</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>expand_binary_catgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>include_pval</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>include_freq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>specs_table_tests</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>include_pval</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>expand_binary_catgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>include_freq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>add_perc_to_cats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,11 +185,6 @@ Names should be variables, while values should be specs.
 Valid specs are 'params' or 'noparm' (see examples).</p></td>
     </tr>
     <tr>
-      <th>expand_binary_catgs</th>
-      <td><p>T/F, should all categories be included for
-binary categorical variables? (This only applies to binary variables.)</p></td>
-    </tr>
-    <tr>
       <th>include_pval</th>
       <td><p>T/F, should the table include a column for p-values?
 If p-values are included, factor variables are handled using
@@ -189,16 +193,28 @@ or ANOVA, depending on the number of categories in the table
 stratification.</p></td>
     </tr>
     <tr>
+      <th>expand_binary_catgs</th>
+      <td><p>T/F, should all categories be included for
+binary categorical variables? (This only applies to binary variables.)</p></td>
+    </tr>
+    <tr>
       <th>include_freq</th>
       <td><p>T/F, should frequency values be included for
 categorical variables?</p></td>
+    </tr>
+    <tr>
+      <th>add_perc_to_cats</th>
+      <td><p>T/F, should categorical variable labels
+be appended with a percent sign?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a> containing summary values
-that describe characteristics of observations in <code>data</code>.</p>
+that describe characteristics of observations in <code>data</code> , which can
+subsequently be sent to different modes of output
+(see <a href='to_word.html'>to_word</a> and <a href='to_kable.html'>to_kable</a>).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"pbc_tbl1"</span>)
