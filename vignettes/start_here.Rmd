@@ -85,7 +85,8 @@ tb1 <- pbc_tbl1 %>%
     meta_data = meta,
     formula = ~ . | trt,
     specs_table_vals = c(albumin = 'median', bili = 'median'),
-    specs_table_tests = c(albumin = 'nopars', bili = 'nopars')
+    specs_table_tests = c(albumin = 'nopars', bili = 'nopars'),
+    include_pval = TRUE
   )
 
 ```
