@@ -214,6 +214,7 @@ to_kable <- function(
 
     # remove group/variable columns
     # rename remaining columns for printing
+
     k1 %<>%
       select(
         ` ` = labels,
@@ -222,7 +223,14 @@ to_kable <- function(
       )
 
     if(names_need_repairing){
-      k1 %<>% rename(!!!names_to_repair)
+
+      recoder <- names(names_to_repair) %>%
+        set_names(names_to_repair)
+
+      k1_col_names <- dplyr::recode(names(k1), !!!recoder)
+      .dots$col.names <- k1_col_names
+
+
     }
 
   }
