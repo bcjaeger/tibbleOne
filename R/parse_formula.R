@@ -1,7 +1,12 @@
 
 
-is_two_sided <- function(formula){
-  attr(terms(formula), 'response') == 1
+is_two_sided <- function(formula, data){
+  # attr(terms(formula), 'response') == 1
+  # This doesn't work when formula contains "." as indicating including all
+  # e.g. formula <- . - a
+  # terms(formula) gives error
+
+  attr(terms(formula, data=data), 'response') == 1
 }
 
 # easy lists of things
@@ -70,20 +75,20 @@ check_row_vars <- function(string){
 #
 # df = data.frame(a = 1, b = 2, c = 3)
 #
-# get_tb1_vars(~ a + b | c, df)
+# parse_tb1_formula(~ a + b | c, df)
 #
 # # identical to
 #
-# get_tb1_vars(~ . | c, df)
+# parse_tb1_formula(~ . | c, df)
 #
 # # specify a by variable using *
 #
-# get_tb1_vars(~ . | b*c, df)
+# parse_tb1_formula(~ . | b*c, df)
 #
 
 parse_tb1_formula <- function(formula, data){
 
-  if(is_two_sided(formula)) stop(
+  if(is_two_sided(formula, data)) stop(
     "formula should only have variables on the right hand side of ~",
     call. = FALSE
   )
