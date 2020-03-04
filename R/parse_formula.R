@@ -17,6 +17,8 @@ list_things <- function(things){
 
 }
 
+# TODO: check why it doesn't gives error message when  using independently
+# e.g. parse_tb1_formula(~ . | c, df) doesn't give message Stratification variables must be factors.
 check_strat <- function(string, data){
 
   pattern <- "[?><!@#$%^&()+-]"
