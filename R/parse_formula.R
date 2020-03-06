@@ -33,7 +33,14 @@ check_strat <- function(string, data){
   is_fctr <- map_lgl(set_names(string, string), ~is.factor(data[[.x]]))
 
   if(!all(is_fctr)){
-    bad_strat_vars <- names(is_fctr)[-which(is_fctr)]
+    #  this implementation will not give the error message when length(is_fctr) = 1, as which(is_fctr) return integer(0)
+    # Note(boyiguo1): It will only give error without the message, since which(is_fctr) return integer(0)
+    # bad_strat_vars <- names(is_fctr)[-which(is_fctr)]
+
+    bad_strat_vars <- names(is_fctr)
+    if(length(which(is_fctr))!=0) bad_strat_vars <- names(is_fctr)[-which(is_fctr)]
+
+
     stop(
       glue(
         "Stratification variables must be factors. \\
