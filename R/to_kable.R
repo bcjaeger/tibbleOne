@@ -214,7 +214,8 @@ to_kable <- function(
 
     # remove group/variable columns
     # rename remaining columns for printing
-    k1 %<>%
+    k1 %<>% # boyiguo1 added gsub
+      mutate(labels = gsub("%", "\\\\%", labels)) %>%
       select(
         ` ` = labels,
         everything(),
