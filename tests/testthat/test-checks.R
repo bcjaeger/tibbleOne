@@ -1,13 +1,9 @@
 
-library(tibbleOne, warn.conflicts = F)
-
 df <- data.frame(
   A = c(1,2,3),
   B = factor(c("One", "", "Three"), levels = c("One", "", "Three")),
   C = factor(c("One", "Two", " "), levels = c("One", "Two", " "))
 )
-
-tibble_one(df, formula =  ~ B | C)
 
 test_that("check_blanks throws an error for blank factors", {
   expect_error(check_blanks(df))
