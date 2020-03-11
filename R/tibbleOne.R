@@ -45,7 +45,7 @@
 #' @importFrom vctrs vec_size vec_is_empty
 #'
 #' @importFrom purrr map pmap map_dfr map_chr map_dbl map_lgl map_int
-#'   set_names modify pluck reduce flatten map2_lgl map2_chr
+#'   set_names modify pluck reduce flatten map2_lgl map2_chr is_empty
 #'
 #' @importFrom stats glm lm sd qnorm coef vcov as.formula update.formula
 #'   na.omit terms lm t.test wilcox.test kruskal.test anova quantile

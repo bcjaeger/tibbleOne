@@ -1,4 +1,21 @@
 
+check_blanks <- function(data){
+
+  fctrs <- names(which(map_lgl(data, is.factor)))
+
+  if(!is_empty(fctrs)){
+
+    lvls <- map(set_names(fctrs), ~levels(data[[.x]]))
+
+    blank_lvls <- names(which(map_lgl(lvls, ~ any(.x %in% c('', ' ')))))
+
+    if(!is_empty(blank_lvls)) stop("factors in data contain blank",
+      " levels: ", list_things(blank_lvls), ".\nBlank levels can",
+      " cause errors in tabulation functions.", call. = FALSE)
+
+  }
+
+}
 
 check_dots <- function(.dots, valid_args){
 

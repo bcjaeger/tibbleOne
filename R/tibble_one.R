@@ -108,6 +108,9 @@ tibble_one <- function(
   # uniformly convert characters to factors
   data %<>% mutate_if(is.character, as.factor)
 
+  # check to see if any factor variable has a blank level.
+  check_blanks(data)
+
   # Identify row, stratification, and by variables
   if( !is.null(formula) ){
 
