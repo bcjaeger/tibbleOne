@@ -73,7 +73,7 @@ treatment group." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tibbleOne</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -132,11 +132,20 @@ presented overall and also stratified by a categorical variable, e.g.
 treatment group.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tibble_one</span>(<span class='no'>data</span>, <span class='kw'>formula</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>meta_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>row_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>strat</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>specs_table_vals</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>specs_table_tests</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>include_pval</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>expand_binary_catgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>include_freq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_perc_to_cats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>tibble_one</span>(
+  <span class='no'>data</span>,
+  <span class='kw'>formula</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>meta_data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>row_vars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>strat</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>by</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>specs_table_vals</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>specs_table_tests</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>include_pval</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>expand_binary_catgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>include_freq</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>add_perc_to_cats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

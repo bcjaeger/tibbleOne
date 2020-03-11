@@ -76,7 +76,7 @@ in the table. This function automates these tasks." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tibbleOne</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -138,10 +138,17 @@ with full descriptions of variables and abbreviations that appear
 in the table. This function automates these tasks.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>to_kable</span>(<span class='no'>object</span>, <span class='kw'>use_groups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>indent_groups</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>footnote_notation</span> <span class='kw'>=</span> <span class='st'>"symbol"</span>, <span class='kw'>include_1st_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>include_2nd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>include_3rd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>bold_headers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>to_kable</span>(
+  <span class='no'>object</span>,
+  <span class='kw'>use_groups</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>indent_groups</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>footnote_notation</span> <span class='kw'>=</span> <span class='st'>"symbol"</span>,
+  <span class='kw'>include_1st_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>include_2nd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>include_3rd_header</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>bold_headers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -183,15 +190,15 @@ use in tables. Eligible values are <code>symbol</code>, <code>number</code>, and
     <tr>
       <th>...</th>
       <td><p>Arguments passed on to <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable</a></code></p><dl class='dl-horizontal'>
-  <dt>format</dt><dd><p>A character string. Possible values are <code>latex</code>,
+    <dt><code>format</code></dt><dd><p>A character string. Possible values are <code>latex</code>,
 <code>html</code>, <code>markdown</code>, <code>pandoc</code>, and <code>rst</code>; this will be
 automatically determined if the function is called within <span class="pkg">knitr</span>; it
 can also be set in the global option <code>knitr.table.format</code>. If
 <code>format</code> is a function, it must return a character string.</p></dd>
-  <dt>caption</dt><dd><p>The table caption.</p></dd>
-  <dt>label</dt><dd><p>The table reference label. By default, the label is obtained
-from <code>knitr::opts_current$get('label')</code>.</p></dd>
-
+    <dt><code>caption</code></dt><dd><p>The table caption.</p></dd>
+    <dt><code>label</code></dt><dd><p>The table reference label. By default, the label is obtained
+from <code>knitr::<a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_current</a>$get('label')</code>.</p></dd>
+  
 </dl></td>
     </tr>
     </table>

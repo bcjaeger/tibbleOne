@@ -70,7 +70,7 @@ characteristics of another dataset" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tibbleOne</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -126,8 +126,12 @@ characteristics of another dataset" />
 characteristics of another dataset</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_meta</span>(<span class='no'>data</span>, <span class='kw'>expand_binary_catgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>add_perc_to_cats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>max_catgs</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
+    <pre class="usage"><span class='fu'>build_meta</span>(
+  <span class='no'>data</span>,
+  <span class='kw'>expand_binary_catgs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>add_perc_to_cats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>max_catgs</span> <span class='kw'>=</span> <span class='fl'>10</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,9 +150,9 @@ binary categorical variables? (This only applies to binary variables.)</p></td>
     <tr>
       <th>add_perc_to_cats</th>
       <td><p>T/F, should categorical variables in
-Table 1 have a <!-- % sign following their label? Note that if -->
+Table 1 have a % sign following their label? Note that if
 the user specifies <code>include_freq</code> = <code>TRUE</code> in <a href='tibble_one.html'>tibble_one</a>,
-then the <!-- % symbol may be confusing to readers. However, -->
+then the % symbol may be confusing to readers. However,
 when <code>include_freq</code> = <code>FALSE</code>, setting this to <code>TRUE</code>
 should clarify the table.</p></td>
     </tr>
