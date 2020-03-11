@@ -2,7 +2,7 @@ Type: Package
 Package: tibbleOne
 Title: Table One for 'Latex', 'Word', and 'Html' 'R Markdown'
     Documents
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: 
     c(person(given = "Byron",
              family = "Jaeger",
@@ -32,10 +32,10 @@ Imports:
     forcats,
     labelled,
     tidyr (>= 1.0.0),
-    tidyselect (>= 0.2.99.9000),
+    tidyselect,
     stringr,
     rlang,
-    vctrs (>= 0.2.99.9002),
+    vctrs,
     purrr,
     glue,
     stats,

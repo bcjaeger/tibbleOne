@@ -93,8 +93,7 @@ tbl_one %>%
 
 <caption>
 
-Characteristics of patients with primary biliarry
-cirrhosis.
+Characteristics of patients with primary biliarry cirrhosis.
 
 </caption>
 

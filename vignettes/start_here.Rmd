@@ -110,7 +110,10 @@ The `flextable()` package comprises functions that help construct tables in Micr
 
 ```{r}
 
-to_word(tb1)
+to_word(tb1) %>% 
+  flextable::width(width = 1) %>% 
+  flextable::width(j=3, width = 2) %>% 
+  flextable::width(j=1, width = 3)
 
 ```
 

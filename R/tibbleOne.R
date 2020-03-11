@@ -22,7 +22,7 @@
 #'
 #' @importFrom flextable flextable as_flextable as_grouped_data compose
 #'   as_paragraph set_header_labels fontsize align padding theme_box
-#'   as_chunk
+#'   as_chunk width
 #'
 #' @importFrom tibble tibble as_tibble enframe deframe
 #'

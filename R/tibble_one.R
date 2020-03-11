@@ -534,7 +534,7 @@ tibble_one <- function(
   attr(table_data, 'allcats') <- expand_binary_catgs
 
   # set class to include tibble_one
-  class(table_data) %<>% c('tibble_one')
+  # class(table_data) %<>% c('tibble_one')
 
   table_data
 
