@@ -4,10 +4,17 @@
 \alias{to_kable}
 \title{Pass tibble_one to kable}
 \usage{
-to_kable(object, use_groups = TRUE, indent_groups = FALSE,
-  footnote_notation = "symbol", include_1st_header = TRUE,
-  include_2nd_header = TRUE, include_3rd_header = TRUE,
-  bold_headers = TRUE, ...)
+to_kable(
+  object,
+  use_groups = TRUE,
+  indent_groups = FALSE,
+  footnote_notation = "symbol",
+  include_1st_header = TRUE,
+  include_2nd_header = TRUE,
+  include_3rd_header = TRUE,
+  bold_headers = TRUE,
+  ...
+)
 }
 \arguments{
 \item{object}{a tibble_one object}
@@ -28,17 +35,18 @@ use in tables. Eligible values are \code{symbol}, \code{number}, and \code{alpha
 
 \item{bold_headers}{T/F, should header labels be printed in bold?}
 
-\item{...}{Arguments passed on to \code{knitr::kable}
-\describe{
-  \item{format}{A character string. Possible values are \code{latex},
+\item{...}{
+  Arguments passed on to \code{\link[knitr:kable]{knitr::kable}}
+  \describe{
+    \item{\code{format}}{A character string. Possible values are \code{latex},
 \code{html}, \code{markdown}, \code{pandoc}, and \code{rst}; this will be
 automatically determined if the function is called within \pkg{knitr}; it
 can also be set in the global option \code{knitr.table.format}. If
 \code{format} is a function, it must return a character string.}
-  \item{caption}{The table caption.}
-  \item{label}{The table reference label. By default, the label is obtained
-from \code{knitr::\link{opts_current}$get('label')}.}
-}}
+    \item{\code{caption}}{The table caption.}
+    \item{\code{label}}{The table reference label. By default, the label is obtained
+from \code{knitr::\link[knitr]{opts_current}$get('label')}.}
+  }}
 }
 \value{
 A character vector of the table source code, i.e., code that can

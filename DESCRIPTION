@@ -2,7 +2,7 @@ Type: Package
 Package: tibbleOne
 Title: Table One for 'Latex', 'Word', and 'Html' 'R Markdown'
     Documents
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     c(person(given = "Byron",
              family = "Jaeger",
@@ -32,10 +32,10 @@ Imports:
     forcats,
     labelled,
     tidyr (>= 1.0.0),
-    tidyselect,
+    tidyselect (>= 0.2.99.9000),
     stringr,
     rlang,
-    vctrs,
+    vctrs (>= 0.2.99.9002),
     purrr,
     glue,
     stats,
@@ -45,7 +45,6 @@ Imports:
 Suggests: 
     rmarkdown,
     survival,
-    tidyverse,
     testthat (>= 2.1.0),
     covr
 VignetteBuilder: 
@@ -56,4 +55,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace",
     "collate"))
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

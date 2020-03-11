@@ -105,6 +105,9 @@ tibble_one <- function(
   add_perc_to_cats = TRUE
 ){
 
+  # uniformly convert characters to factors
+  data %<>% mutate_if(is.character, as.factor)
+
   # Identify row, stratification, and by variables
   if( !is.null(formula) ){
 

@@ -267,6 +267,9 @@ catg_tbl_value <- function(
 
     chi_tst <- suppressWarnings(try(chisq.test(counts_by_group)))
 
+    # would this work for trend tests?
+    # prop.trend.test(counts_by_group[2, ], apply(counts_by_group, 2, sum))
+
     if(class(chi_tst)[1]=='try-error'){
       pval = 'NA'
     } else {

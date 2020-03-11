@@ -4,10 +4,16 @@
 \alias{to_word}
 \title{pass tibble_one to flextable}
 \usage{
-to_word(object, font_size = 11, use_groups = TRUE,
-  indent_groups = TRUE, footnote_notation = "symbol",
-  include_1st_header = TRUE, include_2nd_header = TRUE,
-  include_3rd_header = TRUE)
+to_word(
+  object,
+  font_size = 11,
+  use_groups = TRUE,
+  indent_groups = TRUE,
+  footnote_notation = "symbol",
+  include_1st_header = TRUE,
+  include_2nd_header = TRUE,
+  include_3rd_header = TRUE
+)
 }
 \arguments{
 \item{object}{a tibble_one object}

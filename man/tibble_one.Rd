@@ -4,11 +4,20 @@
 \alias{tibble_one}
 \title{Tidy characteristics data}
 \usage{
-tibble_one(data, formula = NULL, meta_data = NULL, row_vars = NULL,
-  strat = NULL, by = NULL, specs_table_vals = NULL,
-  specs_table_tests = NULL, include_pval = FALSE,
-  expand_binary_catgs = FALSE, include_freq = FALSE,
-  add_perc_to_cats = TRUE)
+tibble_one(
+  data,
+  formula = NULL,
+  meta_data = NULL,
+  row_vars = NULL,
+  strat = NULL,
+  by = NULL,
+  specs_table_vals = NULL,
+  specs_table_tests = NULL,
+  include_pval = FALSE,
+  expand_binary_catgs = FALSE,
+  include_freq = FALSE,
+  add_perc_to_cats = TRUE
+)
 }
 \arguments{
 \item{data}{a data frame}
