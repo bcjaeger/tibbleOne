@@ -329,7 +329,7 @@ tibble_one <- function(
     n_obs %<>% c(strat_table)
 
     # formalize information about strata with a list
-    strat_data = list(
+    strat_data <- list(
       # total no. of groups
       n_groups = length(strat_table) / n_by,
       # total no. of by groups
@@ -357,7 +357,7 @@ tibble_one <- function(
 
   # the original data is modified for computing table values
   # .strat is the stratifying variable
-  tbl_data = select(data, !!!select_vec)
+  tbl_data <- select(data, !!!select_vec)
 
   # abbreviations are organized into one string
   table_abbrs <- meta$data$abbr %>%
@@ -375,11 +375,41 @@ tibble_one <- function(
   table_data <- meta$data %>%
     select(-c(abbr,note)) %>%
     {
-      if(stratified_table){
-        filter(., !variable %in% c(strat, by))
-      } else {
-        .
-      }
+      # NOTE(boyiguo1): The following implementation doesn't work well when meta_data contain more variables than specified in formula
+      # e.g.:
+      # meta <- pbc_tbl1 %>%
+      #   set_variable_labels(
+      #     status = "Status at last contact",
+      #     trt = "Treatment group",
+      #     age = 'Age',
+      #     sex = 'Sex at birth',
+      #     ascites = 'Ascites',
+      #     bili = 'Bilirubin levels',
+      #     edema = 'Edema',
+      #     albumin = 'Serum Albumin'
+      #   ) %>%
+      #   build_meta(add_perc_to_cats = TRUE)
+      #
+      #
+      # tbl_one <- tibble_one(
+      #   data = pbc_tbl1,
+      #   meta_data = meta,
+      #   formula = ~ . - bili | trt,
+      #   include_pval = TRUE
+      # )
+
+
+      # if(stratified_table){
+      #   filter(., !variable %in% c(strat, by))
+      # } else {
+      #   .
+      # }
+
+
+      # Note(boyiguo1): I think it is safe just select the variables that is in the row_vars
+      # You might want to re-pipe
+      filter(., variable %in% row_vars)
+
     } %>%
     left_join(
       enframe(

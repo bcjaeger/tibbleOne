@@ -1,7 +1,12 @@
 
 
-is_two_sided <- function(formula){
-  attr(terms(formula), 'response') == 1
+is_two_sided <- function(formula, data){
+  # attr(terms(formula), 'response') == 1
+  # This doesn't work when formula contains "." as indicating including all
+  # e.g. formula <- . - a
+  # terms(formula) gives error
+
+  attr(terms(formula, data=data), 'response') == 1
 }
 
 # easy lists of things
@@ -22,6 +27,25 @@ check_strat <- function(string, data){
     "Only a star symbol (*) can be used after |, e.g. ~ x | y*z ",
     call. = FALSE
   )
+
+  is_fctr <- map_lgl(set_names(string, string), ~is.factor(data[[.x]]))
+
+  if(!all(is_fctr)){
+    #  this implementation will not give the error message when length(is_fctr) = 1, as which(is_fctr) return integer(0)
+    # Note(boyiguo1): It will only give error without the message, since which(is_fctr) return integer(0)
+    # bad_strat_vars <- names(is_fctr)[-which(is_fctr)]
+
+    bad_strat_vars <- names(is_fctr)
+    if(length(which(is_fctr))!=0) bad_strat_vars <- names(is_fctr)[-which(is_fctr)]
+
+
+    stop(
+      glue(
+        "Stratification variables must be factors. \\
+        check the following variables: {list_things(bad_strat_vars)}"
+      )
+    )
+  }
 
   string
 
@@ -58,20 +82,20 @@ check_row_vars <- function(string){
 #
 # df = data.frame(a = 1, b = 2, c = 3)
 #
-# get_tb1_vars(~ a + b | c, df)
+# parse_tb1_formula(~ a + b | c, df)
 #
 # # identical to
 #
-# get_tb1_vars(~ . | c, df)
+# parse_tb1_formula(~ . | c, df)
 #
 # # specify a by variable using *
 #
-# get_tb1_vars(~ . | b*c, df)
+# parse_tb1_formula(~ . | b*c, df)
 #
 
 parse_tb1_formula <- function(formula, data){
 
-  if(is_two_sided(formula)) stop(
+  if(is_two_sided(formula, data)) stop(
     "formula should only have variables on the right hand side of ~",
     call. = FALSE
   )
