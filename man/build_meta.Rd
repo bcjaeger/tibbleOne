@@ -4,8 +4,12 @@
 \alias{build_meta}
 \title{Meta data builder}
 \usage{
-build_meta(data, expand_binary_catgs = FALSE, add_perc_to_cats = TRUE,
-  max_catgs = 10)
+build_meta(
+  data,
+  expand_binary_catgs = FALSE,
+  add_perc_to_cats = TRUE,
+  max_catgs = 10
+)
 }
 \arguments{
 \item{data}{a data frame with any combination of the following
@@ -16,9 +20,9 @@ Columns in the meta data are based on these attributes.}
 binary categorical variables? (This only applies to binary variables.)}
 
 \item{add_perc_to_cats}{T/F, should categorical variables in
-Table 1 have a % sign following their label? Note that if
+Table 1 have a \% sign following their label? Note that if
 the user specifies \code{include_freq} = \code{TRUE} in \link{tibble_one},
-then the % symbol may be confusing to readers. However,
+then the \% symbol may be confusing to readers. However,
 when \code{include_freq} = \code{FALSE}, setting this to \code{TRUE}
 should clarify the table.}
 

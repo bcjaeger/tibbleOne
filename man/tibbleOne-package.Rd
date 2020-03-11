@@ -23,7 +23,7 @@ To learn more about tibbleOne, start with the vignettes:
 \code{browseVignettes(package = "tibbleOne")}
 }
 \author{
-\strong{Maintainer}: Byron Jaeger \email{bcjaeger@uab.edu} (0000-0001-7399-2299)
+\strong{Maintainer}: Byron Jaeger \email{bcjaeger@uab.edu} (\href{https://orcid.org/0000-0001-7399-2299}{ORCID})
 
 Other contributors:
 \itemize{

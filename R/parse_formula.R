@@ -23,18 +23,6 @@ check_strat <- function(string, data){
     call. = FALSE
   )
 
-  is_fctr <- map_lgl(set_names(string, string), ~is.factor(data[[.x]]))
-
-  if(!all(is_fctr)){
-    bad_strat_vars <- names(is_fctr)[-which(is_fctr)]
-    stop(
-      glue(
-        "Stratification variables must be factors. \\
-        check the following variables: {list_things(bad_strat_vars)}"
-      )
-    )
-  }
-
   string
 
 }

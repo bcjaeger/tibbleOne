@@ -9,8 +9,10 @@ test_that("correct inputs work", {
     set_variable_abbrs(a = c(ABC = "123")) %>%
     set_variable_notes(a = "The abbreviation is irrelevant")
 
+  tb0 <- tibble_one(data = df, formula = ~ a + b)
   tb1 <- tibble_one(data = df, formula = ~ a | b)
 
+  kb0 <- to_kable(tb0)
   kb1 <- to_kable(tb1, use_groups = TRUE)
 
   attr <- attributes(kb1)
