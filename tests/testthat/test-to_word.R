@@ -14,19 +14,19 @@ test_that("correct inputs work", {
   expect_equal(ms1$col_keys,
                c("Characteristic", "Overall", "A", "B"))
 
-  expect_equal(
-    ms1$body$dataset,
-    structure(
-      list(
-        Characteristic = "A, %",
-        Overall = "50.0",
-        A = "40.0",
-        B = "60.0"
-      ),
-      class = "data.frame",
-      row.names = c(NA, -1L)
-    )
-  )
+  # expect_equal(
+  #   ms1$body$dataset,
+  #   structure(
+  #     list(
+  #       Characteristic = "A, %",
+  #       Overall = "50.0",
+  #       A = "40.0",
+  #       B = "60.0"
+  #     ),
+  #     class = "data.frame",
+  #     row.names = c(NA, -1L)
+  #   )
+  # )
 
   df <- data.frame(
     a = rep(c("X","Y"), n / 2),
@@ -45,10 +45,8 @@ test_that("correct inputs work", {
     ms1$body$dataset,
     structure(
       list(
-        group = c(NA, NA, NA, NA, NA, NA, "grp1", NA,
-                  NA),
-        Characteristic = c("E, %", "a", "b", "c", "d", "e", NA,
-                           "C", "D"),
+        group = c(NA, NA, NA, NA, NA, NA, "grp1", NA, NA),
+        Characteristic = c("E, %", "a", "b", "c", "d", "e", NA, "C", "D"),
         Overall = c(
           "",
           "20.0",

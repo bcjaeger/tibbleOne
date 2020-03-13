@@ -17,11 +17,9 @@ test_that("simple continuous input works", {
         group = structure(c(1L, 1L, 1L), .Label = "None", class = "factor"),
         variable = structure(1:3, .Label = c("descr", "a", "b"), class = "factor"),
         labels = c("No. of observations", "A", "B, %"),
-        Overall = c("10",
-                    "5.50 [3.25-7.75]", "50.0")
+        Overall = c("10", "5.50 [3.25-7.75]", "50.0")
       ),
-      class = c("tbl_df", "tbl",
-                "data.frame", "tibble_one"),
+      class = c("tbl_df", "tbl", "data.frame"),
       row.names = c(NA, -3L),
       type = "single_decker",
       pvals = FALSE,
@@ -46,11 +44,9 @@ test_that("simple continuous input works", {
         group = structure(c(1L, 1L, 1L), .Label = "None", class = "factor"),
         variable = structure(1:3, .Label = c("descr", "a", "b"), class = "factor"),
         labels = c("No. of observations", "A", "B, n (%)"),
-        Overall = c("10",
-          "5.50 [3.25-7.75]", "5 (50.0)")
+        Overall = c("10", "5.50 [3.25-7.75]", "5 (50.0)")
       ),
-      class = c("tbl_df", "tbl",
-        "data.frame", "tibble_one"),
+      class = c("tbl_df", "tbl", "data.frame"),
       row.names = c(NA, -3L),
       type = "single_decker",
       pvals = FALSE,
@@ -83,8 +79,7 @@ test_that("simple continuous input works", {
               "8.00 [7.00-9.00]"),
         `P-value` = c("", "0.008")
       ),
-      class = c("tbl_df",
-                "tbl", "data.frame", "tibble_one"),
+      class = c("tbl_df", "tbl", "data.frame"),
       row.names = c(NA, -2L),
       type = "double_decker",
       strat = list(
