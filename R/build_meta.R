@@ -61,7 +61,8 @@ build_meta <- function(
 
   mta_data <- tibble::tibble(
     variable = names(data),
-    type     = map_chr(data, class),
+    # type     = map_chr(data, class),
+    type     = map_chr(variable, ~get_class(data, .x)),
     n_unique = map_int(data, ~length(unique(na.omit(.x)))),
     label    = map_chr(variable, ~get_label(data, .x)),
     unit     = map_chr(variable, ~get_units(data, .x)),
