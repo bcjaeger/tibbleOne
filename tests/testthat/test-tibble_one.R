@@ -194,7 +194,8 @@ test_that("incorrect types are handled correctly", {
       formula = ~ a+b,
       specs_table_vals = 'median'
     ),
-    regexp = 'tibble_one is compatible with'
+    #regexp = 'tibble_one is compatible with'
+    regexp = "Variable a doesn't contains any of"
   )
 
   df <- data.frame(a = 1:n, b = NA_real_)

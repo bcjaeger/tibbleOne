@@ -60,3 +60,27 @@ get_groups <- function(data, col){
   attr(data[[col]],'group') %||% "None"
 
 }
+
+# If this column belongs to multiple classes, return the primitive class type.
+# Otherwise, return NA_character_ and report warning
+# @param data a dataframe.
+# @param col a column name in `data`
+
+get_class <- function(data, col){
+
+  class_vec <- class(data[[col]])
+  # class_vec <- class(col)
+  #
+  ret <- intersect(class_vec,  c('factor', 'numeric', 'integer'))
+
+  if(length(ret) == 1) return(ret)
+  else if(length(ret) == 0) stop(glue("Variable {col} doesn't contains any of the 'factor', 'numeric', 'integer' classes"))
+  else if(length(ret) >1) stop(glue("Variable {col} contains more than one of the 'factor', 'numeric', 'integer' classes"))
+  # I don't know why, but this doesn't work. Probably because of the ret
+  # case_when(
+  #   length(ret) == 1 ~ ret,
+  #   length(ret) == 0 ~ stop(glue("Variable {col} doesn't contains any of the 'factor', 'numeric', 'integer' classes")),
+  #   length(ret) >1  ~ stop(glue("Variable {col} contains more than one of the 'factor', 'numeric', 'integer' classes"))
+  #           )
+
+}
