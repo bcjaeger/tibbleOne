@@ -9,7 +9,11 @@ get_label <- function(data, col){
 
   # If var_label of this column is null, return col
   # otherwise, return the var_label of the column
-  var_label(data[[col]]) %||% capitalize(col)
+  out <- var_label(data[[col]])
+
+  if(is.null(out) | rlang::is_empty(out)) out <- capitalize(col)
+
+  out
 
 }
 

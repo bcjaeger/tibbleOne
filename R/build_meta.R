@@ -1,4 +1,8 @@
 
+# TODO: add the expand_binary_catgs argument to output
+# include check in tibble_one() to make sure tibble_one expand_binary_catgs
+# input matches the corresponding value in the meta data. Throw a warning.
+
 #' Meta data builder
 #' @description creates a dataset that describes the
 #'   characteristics of another dataset
